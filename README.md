@@ -274,4 +274,13 @@ Output:
 
 Use verify [file] to test your solution and see how it does. When you are finished editing your code, use submit [file] to submit your answer. If your solution passes the test cases, it will be removed from your home folder.
 ```
-...to be continued
+So this question requires you to be pretty Good at graph Algorithms, and concept of array subsequence and permutations.
+2 Graph algorithms that you should know before attempting : Bellman Ford and Floyd Warshall.
+in this question , we are given a Start an Exit (called the bulk head) and varoius bunnies, we have to start from the start point , traverse various paths , collect as many bunnies as we can and reach the bulk-head , now the thing is each path has a cost (which can be negative too) and we are given an initial time_limit , if the time is depleated the Exit closes.
+
+First we check for any negative weight Cycles, if any then we can rescue all the bunnies. because we can keep traversing that negative weight cycle as many times and keep gaining time.
+If we do not have a negative weight cycle then we have to calculate shortest path from each vertex to the other vertex using the Floyd Warshall Algorithm.
+Now since there are at max 5 bunnies , we can have varous combinations like 0 , 1 , 2 ,3 , 4 or (0 ,1 ), (1,2) ,(2,3)....... (0,1,2,3,4) we will have all subsets of bunnies , now for each subset we will create permutations liek for a subset (0,1,2) the permutations can be 0 1 2 , 0 2 1 , 1 0 2 , 1 2 0 ...and so on.
+Now for each permutation we can check the cost it takes to start from zero to first bunny of that subset.... traversing all bunnies and then from the last bunny to the bulkhead.. if the cost < = time_given that this is a possible combination.
+if a combination of greater bunnies come we can store it in answer.
+Hope that helps!
